@@ -3,7 +3,7 @@
 @push('scripts')
 <script type="text/javascript">
 	$('button.deletar').click(function() {
-		if(!confirm('Você tem certeza que deseja deletar essa funcionario?')) return false;
+		if(!confirm('Você tem certeza que deseja deletar esse funcionário?')) return false;
 	});
 </script>
 @endpush

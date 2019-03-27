@@ -90,6 +90,8 @@ class FuncionarioController extends Controller
      */
     public function destroy(Funcionario $funcionario)
     {
-        //
+        $funcionario->delete();
+
+        return redirect(route('funcionarios'));
     }
 }
