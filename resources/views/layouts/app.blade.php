@@ -19,6 +19,17 @@
 	<!-- Styles -->
 	<!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 	<link href="{{ asset('material/css/material-dashboard.min.css') }}" rel="stylesheet" />
+	<style type="text/css">
+		figure {
+			width: 100%;
+			padding-bottom: 75%;
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 5px;
+			background-size: cover;
+		}
+	</style>
+	@stack('styles')
 </head>
 <body>
 	<div class="wrapper">
@@ -47,7 +58,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link @if (Route::currentRouteName() == 'empresas') active @endif" href="./user.html">
+						<a class="nav-link @if (Route::currentRouteName() == 'empresas') active @endif" href="{{ route('empresas') }}">
 							<i class="material-icons">location_city</i>
 							<p>Empresas</p>
 						</a>
@@ -83,7 +94,7 @@
 			<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
 					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#pablo"></a>
+						<a class="navbar-brand" href="#pablo">@yield('titulo')</a>
 					</div>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="sr-only">Toggle navigation</span>
@@ -115,6 +126,43 @@
 	<!--  Notifications Plugin    -->
 	<script src="{{ asset('material/js/plugins/bootstrap-notify.js') }}"></script>
 	<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-	<script src="{{ asset('material/js/material-dashboard.js?v=2.1.1') }}" type="text/javascript"></script>
+	<script src="{{ asset('material/js/material-dashboard.js') }}" type="text/javascript"></script>
+	<script type="text/javascript">
+		// FileInput
+		$('.form-file-simple .inputFileVisible').click(function() {
+			$(this).siblings('.inputFileHidden').trigger('click');
+		});
+
+		$('.form-file-simple .inputFileHidden').change(function() {
+			var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+			$(this).siblings('.inputFileVisible').val(filename);
+		});
+
+		$('.form-file-multiple .inputFileVisible, .form-file-multiple .input-group-btn').click(function() {
+			$(this).parent().parent().find('.inputFileHidden').trigger('click');
+			$(this).parent().parent().addClass('is-focused');
+		});
+
+		$('.form-file-multiple .inputFileHidden').change(function() {
+			var names = '';
+			for (var i = 0; i < $(this).get(0).files.length; ++i) {
+				if (i < $(this).get(0).files.length - 1) {
+					names += $(this).get(0).files.item(i).name + ',';
+				} else {
+					names += $(this).get(0).files.item(i).name;
+				}
+			}
+			$(this).siblings('.input-group').find('.inputFileVisible').val(names);
+		});
+
+		$('.form-file-multiple .btn').on('focus', function() {
+			$(this).parent().siblings().trigger('focus');
+		});
+
+		$('.form-file-multiple .btn').on('focusout', function() {
+			$(this).parent().siblings().trigger('focusout');
+		});
+	</script>
+	@stack('scripts')
 </body>
 </html>
