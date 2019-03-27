@@ -64,7 +64,7 @@
 						</a>
 					</li>
 					<li class="nav-item ">
-						<a class="nav-link @if (Route::currentRouteName() == 'funcionarios') active @endif" href="./tables.html">
+						<a class="nav-link @if (Route::currentRouteName() == 'funcionarios') active @endif" href="{{ route('funcionarios') }}">
 							<i class="material-icons">assignment_ind</i>
 							<p>Funcionários</p>
 						</a>

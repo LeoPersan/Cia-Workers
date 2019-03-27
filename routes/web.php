@@ -25,4 +25,14 @@ Route::group(['middleware' => 'auth'], function() {
 	    Route::post('edit/{empresa}', 'EmpresaController@update');
 	    Route::post('destroy/{empresa}', 'EmpresaController@destroy')->name('empresaDestroy');
 	});
+
+	Route::group(['prefix' => 'funcionarios'], function() {
+	    Route::get('', 'FuncionarioController@index')->name('funcionarios');
+	    Route::get('create', 'FuncionarioController@create')->name('funcionarioCreate');
+	    Route::post('create', 'FuncionarioController@store');
+	    Route::get('{funcionario}', 'FuncionarioController@show')->name('funcionario');
+	    Route::get('edit/{funcionario}', 'FuncionarioController@edit')->name('funcionarioEdit');
+	    Route::post('edit/{funcionario}', 'FuncionarioController@update');
+	    Route::post('destroy/{funcionario}', 'FuncionarioController@destroy')->name('funcionarioDestroy');
+	});
 });
