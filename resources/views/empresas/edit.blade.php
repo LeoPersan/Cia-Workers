@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo', 'Nova Empresa')
+@section('titulo', $empresa->nome)
 
 @section('content')
 <!-- End Navbar -->

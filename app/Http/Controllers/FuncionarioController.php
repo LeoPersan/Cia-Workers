@@ -62,7 +62,7 @@ class FuncionarioController extends Controller
      */
     public function edit(Funcionario $funcionario)
     {
-        //
+        return view('funcionarios.edit', ['empresas'=>Empresa::all(),'funcionario'=>$funcionario]);
     }
 
     /**
@@ -74,7 +74,12 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, Funcionario $funcionario)
     {
-        //
+        $this->validate($request, $funcionario->rules('update'));
+
+        $funcionario->fill($request->all());
+        $funcionario->save();
+
+        return redirect(route('funcionarios'));
     }
 
     /**
