@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Funcionario;
+use App\Empresa;
 use Illuminate\Http\Request;
 
 class FuncionarioController extends Controller
@@ -24,7 +25,7 @@ class FuncionarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('funcionarios.create',['empresas'=>Empresa::all()]);
     }
 
     /**
@@ -35,7 +36,11 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, (new Funcionario)->rules('create'));
+
+        $funcionario = Funcionario::create($request->all());
+
+        return redirect(route('funcionario',[$funcionario->id]));
     }
 
     /**

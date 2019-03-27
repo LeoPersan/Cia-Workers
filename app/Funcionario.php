@@ -11,7 +11,7 @@ class Funcionario extends Model
      *
      * @var array
      */
-    protected $fillable = ['empresa_id', 'nome', 'email', 'cpf'];
+    protected $fillable = ['empresa_id', 'nome', 'telefone', 'email', 'cpf'];
 
     public function setNomeAttribute($value)
     {
@@ -19,9 +19,19 @@ class Funcionario extends Model
     	$this->attributes['slug'] = str_slug($value);
     }
 
+    public function setTelefoneAttribute($value)
+    {
+        $this->attributes['telefone'] = preg_replace('([^\d]*)', '', $value);
+    }
+
     public function getTelefoneAttribute()
     {
         return preg_replace('/([\d]{2})([\d]{4,5})([\d]{4})/', '($1) $2-$3', $this->attributes['telefone']);
+    }
+
+    public function setCpfAttribute($value)
+    {
+        $this->attributes['cpf'] = preg_replace('([^\d]*)', '', $value);
     }
 
     public function getCpfAttribute()
@@ -34,16 +44,16 @@ class Funcionario extends Model
     	switch ($type) {
     		case 'create':
     			return [
-    				'empresa_id' => 'required|existis:id',
-    				'nome' => 'required|min:3|unique:empresas',
+    				'empresa_id' => 'required|exists:empresas,id',
+    				'nome' => 'required|min:3|unique:funcionarios',
     				'email' => 'required|email',
     				'cpf' => 'required|min:11|max:14',
     			];
     			break;
     		case 'update':
     			return [
-    				'empresa_id' => 'existis:id',
-    				'nome' => 'min:3|unique:empresas,nome,'.$this->id,
+    				'empresa_id' => 'exists:empresas,id',
+    				'nome' => 'min:3|unique:funcionarios,nome,'.$this->id,
     				'email' => 'email',
     				'cpf' => 'min:11|max:14',
     			];
