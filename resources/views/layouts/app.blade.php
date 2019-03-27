@@ -28,6 +28,9 @@
 			border-radius: 5px;
 			background-size: cover;
 		}
+		.main-panel>.content {
+			margin-top: 0;
+		}
 	</style>
 	@stack('styles')
 </head>
@@ -94,9 +97,8 @@
 			<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
 					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#pablo">@yield('titulo')</a>
 					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler float-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="navbar-toggler-icon icon-bar"></span>
 						<span class="navbar-toggler-icon icon-bar"></span>

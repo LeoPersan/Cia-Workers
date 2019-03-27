@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('titulo', $empresa->nome)
-
 @section('content')
 <!-- End Navbar -->
 <div class="content">
@@ -10,9 +8,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header card-header-primary">
-						<p class="card-category">
-							{{ $empresa->nome }}
-						</p>
+						<h2 class="card-title float-left">{{ $empresa->nome }}</h2>
 					</div>
 					<div class="card-body">
 						<table class="table">

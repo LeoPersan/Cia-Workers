@@ -8,8 +8,6 @@
 </script>
 @endpush
 
-@section('titulo', 'Empresas')
-
 @section('content')
 <!-- End Navbar -->
 <div class="content">
@@ -18,6 +16,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header card-header-primary">
+						<h2 class="card-title float-left">Empresas</h2>
 						<p class="card-category">
 							<a href="{{ route('empresaCreate') }}" class="btn btn-info float-right">Nova Empresa</a>
 						</p>
