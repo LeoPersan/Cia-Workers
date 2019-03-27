@@ -14,7 +14,7 @@ class EmpresaController extends Controller
 	 */
 	public function index()
 	{
-		return view('empresas.index', ['empresas' => Empresa::all()]);
+		return view('empresas.index', ['empresas' => Empresa::paginate(10)]);
 	}
 
 	/**
