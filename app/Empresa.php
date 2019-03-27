@@ -30,6 +30,17 @@ class Empresa extends Model
     	return 'logos/'.$this->slug.'/'.$this->logo;
     }
 
+    /**
+     * Empresa has many Funcionarios.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function funcionarios()
+    {
+        // hasMany(RelatedModel, foreignKeyOnRelatedModel = empresa_id, localKey = id)
+        return $this->hasMany(Funcionario::class);
+    }
+
     public function rules($type)
     {
     	switch ($type) {

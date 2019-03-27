@@ -51,7 +51,7 @@ class FuncionarioController extends Controller
      */
     public function show(Funcionario $funcionario)
     {
-        //
+        return view('funcionarios.show',['funcionario'=>$funcionario]);
     }
 
     /**

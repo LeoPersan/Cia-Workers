@@ -39,6 +39,17 @@ class Funcionario extends Model
         return preg_replace('/([\d]{3})([\d]{3})([\d]{3})([\d]{2})/', '$1.$2.$3-$4', $this->attributes['cpf']);
     }
 
+    /**
+     * Funcionario belongs to Empresa.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function empresa()
+    {
+        // belongsTo(RelatedModel, foreignKey = empresa_id, keyOnRelatedModel = id)
+        return $this->belongsTo(Empresa::class);
+    }
+
     public function rules($type)
     {
     	switch ($type) {

@@ -52,9 +52,6 @@
 									@foreach ($funcionarios as $funcionario)
 									<tr>
 										<td>
-									<figure style="background-image: url('{{ asset($funcionario->logoPath) }}')"></figure>
-										</td>
-										<td>
 											{{ $funcionario->nome }}
 										</td>
 										<td>
@@ -67,7 +64,7 @@
 											{{ $funcionario->cpf }}
 										</td>
 										<td>
-											{{ $funcionario->empresa }}
+											{{ $funcionario->empresa->nome }}
 										</td>
 										<td>
 											<a href="{{ route('funcionarioEdit',[$funcionario->id]) }}" class="btn btn-warning">Editar</a>
