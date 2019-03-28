@@ -20,6 +20,7 @@
 								<td><b>Website:</b> {{ $empresa->website }}</td>
 							</tr>
 						</table>
+						<a href="{{ route('empresas') }}" class="btn btn-info">Empresas</a>
 					</div>
 				</div>
 			</div>

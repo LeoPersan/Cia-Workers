@@ -62,7 +62,7 @@
 									@foreach ($funcionarios as $funcionario)
 									<tr>
 										<td>
-											{{ $funcionario->nome }}
+											<a href="{{ route('funcionario',[$funcionario->id]) }}">{{ $funcionario->nome }}</a>
 										</td>
 										<td>
 											{{ $funcionario->email }}

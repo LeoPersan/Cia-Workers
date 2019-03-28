@@ -59,7 +59,7 @@
 									<figure style="background-image: url('{{ asset($empresa->logoPath) }}')"></figure>
 										</td>
 										<td>
-											{{ $empresa->nome }}
+											<a href="{{ route('empresa',[$empresa->id]) }}">{{ $empresa->nome }}</a>
 										</td>
 										<td>
 											{{ $empresa->email }}

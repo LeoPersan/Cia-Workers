@@ -21,6 +21,7 @@
 							<dt>Empresa</dt>
 							<dd>{{ $funcionario->empresa->nome }}</dd>
 						</dl>
+						<a href="{{ route('funcionarios') }}" class="btn btn-info">Funcionários</a>
 					</div>
 				</div>
 			</div>
