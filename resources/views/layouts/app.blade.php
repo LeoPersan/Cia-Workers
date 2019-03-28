@@ -72,12 +72,14 @@
 							<p>Funcionários</p>
 						</a>
 					</li>
+					{{--
 					<li class="nav-item">
 						<a class="nav-link @if (Route::currentRouteName() == 'perfil') active @endif" href="#" >
 							<i class="material-icons">person</i>
 							{{ Auth::user()->name }}
 						</a>
 					</li>
+					--}}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 							<i class="material-icons">close</i>
