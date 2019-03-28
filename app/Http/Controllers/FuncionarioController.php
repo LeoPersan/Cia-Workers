@@ -13,9 +13,20 @@ class FuncionarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('funcionarios.index', ['funcionarios' => Funcionario::paginate(10)]);
+        $funcionarios = new Funcionario;
+        if ($request->has('empresa'))
+            $funcionarios = $funcionarios->whereHas('empresa', function ($query) use ($request) {
+                $query->where('nome', 'Like', '%'.$request->input('empresa').'%');
+            });
+        if ($request->has('funcionario'))
+            $funcionarios = $funcionarios->where('nome', 'Like', '%'.$request->input('funcionario').'%');
+        return view('funcionarios.index', [
+            'funcionarios' => $funcionarios->paginate(10),
+            'empresa'=>$request->input('empresa'),
+            'funcionario'=>$request->input('funcionario')
+        ]);
     }
 
     /**
