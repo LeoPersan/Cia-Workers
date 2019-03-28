@@ -23,6 +23,14 @@
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
+							<form method="get" class="row">
+								<div class="form-group col-10">
+									<input type="text" class="form-control" name="empresa" placeholder="Filtre pela Empresa" value="{{ $empresa }}">
+								</div>
+								<div class="form-group col-2">
+									<button class="btn btn-info">Pesquisar</button>
+								</div>
+							</form>
 							<table class="table table-hover">
 								<thead class="text-primary">
 									<th>

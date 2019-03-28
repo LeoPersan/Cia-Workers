@@ -12,9 +12,15 @@ class EmpresaController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		return view('empresas.index', ['empresas' => Empresa::paginate(10)]);
+        $empresas = new Empresa;
+        if ($request->has('empresa'))
+            $empresas = $empresas->where('nome', 'Like', '%'.$request->input('empresa').'%');
+        return view('empresas.index', [
+            'empresas' => $empresas->paginate(10),
+            'empresa'=>$request->input('empresa')
+        ]);
 	}
 
 	/**
