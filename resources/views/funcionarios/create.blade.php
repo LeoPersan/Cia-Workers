@@ -27,7 +27,7 @@
 								<select name="empresa_id" class="form-control selectpicker" data-style="btn btn-link">
 									<option value="">Selecione uma opção</option>
 									@foreach($empresas as $empresa)
-									<option value="{{ $empresa->id }}">{{ $empresa->nome }}</option>
+									<option value="{{ $empresa->id }}" @if ($empresa_id == $empresa->id) selected @endif>{{ $empresa->nome }}</option>
 									@endforeach
 								</select>
 							</div>

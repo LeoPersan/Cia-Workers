@@ -34,9 +34,12 @@ class FuncionarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('funcionarios.create',['empresas'=>Empresa::all()]);
+        $parans = ['empresas'=>Empresa::all()];
+        if ($request->has('empresa_id'))
+            $parans['empresa_id'] = $request->input('empresa_id');
+        return view('funcionarios.create', $parans);
     }
 
     /**
