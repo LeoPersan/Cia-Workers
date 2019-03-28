@@ -35,4 +35,6 @@ Route::group(['middleware' => 'auth'], function() {
 	    Route::post('edit/{funcionario}', 'FuncionarioController@update');
 	    Route::post('destroy/{funcionario}', 'FuncionarioController@destroy')->name('funcionarioDestroy');
 	});
+
+	Route::get('storage', 'HomeController@storage');
 });

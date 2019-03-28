@@ -22,12 +22,12 @@ class Empresa extends Model
     public function setLogoAttribute($logo)
     {
     	$this->attributes['logo'] = 'logo.'.$logo->getClientOriginalExtension();
-    	$logo->storeAs('logos/'.$this->slug, $this->logo, 'public_path');
+    	$logo->storeAs('logos/'.$this->slug, $this->logo, 'public');
     }
 
     public function getLogoPathAttribute()
     {
-    	return 'logos/'.$this->slug.'/'.$this->logo;
+    	return 'storage?filename=logos/'.$this->slug.'/'.$this->logo;
     }
 
     /**
