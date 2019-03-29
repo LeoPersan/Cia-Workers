@@ -57,29 +57,33 @@
 					<li class="nav-item @if (Route::currentRouteName() == 'home') active @endif">
 						<a class="nav-link" href="{{ route('home') }}">
 							<i class="material-icons">dashboard</i>
-							<p>Home</p>
+							<p>Home {{Route::currentRouteName()}}</p>
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link @if (Route::currentRouteName() == 'empresas') active @endif" href="{{ route('empresas') }}">
+					<li class="nav-item @if (Route::currentRouteName() == 'empresas') active @endif">
+						<a class="nav-link" href="{{ route('empresas') }}">
 							<i class="material-icons">location_city</i>
 							<p>Empresas</p>
 						</a>
 					</li>
-					<li class="nav-item ">
-						<a class="nav-link @if (Route::currentRouteName() == 'funcionarios') active @endif" href="{{ route('funcionarios') }}">
+					<li class="nav-item @if (Route::currentRouteName() == 'funcionarios') active @endif">
+						<a class="nav-link" href="{{ route('funcionarios') }}">
 							<i class="material-icons">assignment_ind</i>
 							<p>Funcionários</p>
 						</a>
 					</li>
-					{{--
-					<li class="nav-item">
-						<a class="nav-link @if (Route::currentRouteName() == 'perfil') active @endif" href="#" >
+					<li class="nav-item @if (Route::currentRouteName() == 'usuarios') active @endif">
+						<a class="nav-link" href="{{ route('usuarios') }}">
+							<i class="material-icons">person</i>
+							<p>Usuários</p>
+						</a>
+					</li>
+					<li class="nav-item @if (Route::currentRouteName() == 'usuario') active @endif">
+						<a class="nav-link" href="{{ route('usuario',[Auth::user()->id]) }}" >
 							<i class="material-icons">person</i>
 							{{ Auth::user()->name }}
 						</a>
 					</li>
-					--}}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 							<i class="material-icons">close</i>

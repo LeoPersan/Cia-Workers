@@ -13,7 +13,7 @@
 					<div class="card-body">
 						<dl>
 							<dt>Telefone</dt>
-							<dd>{{ $funcionario->nome }}</dd>
+							<dd>{{ $funcionario->telefone }}</dd>
 							<dt>E-mail</dt>
 							<dd>{{ $funcionario->email }}</dd>
 							<dt>CPF</dt>

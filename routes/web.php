@@ -36,5 +36,9 @@ Route::group(['middleware' => 'auth'], function() {
 	    Route::post('destroy/{funcionario}/{nome?}', 'FuncionarioController@destroy')->name('funcionarioDestroy');
 	});
 
+	Route::get('users', 'UserController@index')->name('usuarios');
+	Route::get('users/{usuario}', 'UserController@show')->name('usuario');
+	Route::post('users/destroy/{usuario}', 'UserController@destroy')->name('usuarioDestroy');
+
 	Route::get('storage', 'HomeController@storage');
 });
