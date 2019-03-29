@@ -57,7 +57,7 @@
 					<li class="nav-item @if (Route::currentRouteName() == 'home') active @endif">
 						<a class="nav-link" href="{{ route('home') }}">
 							<i class="material-icons">dashboard</i>
-							<p>Dashboard</p>
+							<p>Home</p>
 						</a>
 					</li>
 					<li class="nav-item">
