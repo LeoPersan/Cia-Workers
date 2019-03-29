@@ -54,8 +54,9 @@ class EmpresaController extends Controller
 	 * @param  \App\Empresa  $empresa
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show(Empresa $empresa)
+	public function show($empresa)
 	{
+		$empresa = Empresa::whereSlug($empresa)->first();
 		return view('empresas.show', ['empresa' => $empresa]);
 	}
 
@@ -65,8 +66,9 @@ class EmpresaController extends Controller
 	 * @param  \App\Empresa  $empresa
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit(Empresa $empresa)
+	public function edit($empresa)
 	{
+		$empresa = Empresa::whereSlug($empresa)->first();
 		return view('empresas.edit', ['empresa'=>$empresa]);
 	}
 
@@ -77,8 +79,9 @@ class EmpresaController extends Controller
 	 * @param  \App\Empresa  $empresa
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, Empresa $empresa)
+	public function update(Request $request, $empresa)
 	{
+		$empresa = Empresa::whereSlug($empresa)->first();
 		$this->validate($request, $empresa->rules('update'));
 
 		$empresa->fill($request->all());
@@ -93,8 +96,9 @@ class EmpresaController extends Controller
 	 * @param  \App\Empresa  $empresa
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy(Empresa $empresa)
+	public function destroy($empresa)
 	{
+		$empresa = Empresa::whereSlug($empresa)->first();
 		$empresa->delete();
 
 		return redirect(route('empresas'));

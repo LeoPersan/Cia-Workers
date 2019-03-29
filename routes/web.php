@@ -30,10 +30,10 @@ Route::group(['middleware' => 'auth'], function() {
 	    Route::get('', 'FuncionarioController@index')->name('funcionarios');
 	    Route::get('create', 'FuncionarioController@create')->name('funcionarioCreate');
 	    Route::post('create', 'FuncionarioController@store');
-	    Route::get('{funcionario}', 'FuncionarioController@show')->name('funcionario');
-	    Route::get('edit/{funcionario}', 'FuncionarioController@edit')->name('funcionarioEdit');
-	    Route::post('edit/{funcionario}', 'FuncionarioController@update');
-	    Route::post('destroy/{funcionario}', 'FuncionarioController@destroy')->name('funcionarioDestroy');
+	    Route::get('{funcionario}/{nome?}', 'FuncionarioController@show')->name('funcionario');
+	    Route::get('edit/{funcionario}/{nome?}', 'FuncionarioController@edit')->name('funcionarioEdit');
+	    Route::post('edit/{funcionario}/{nome?}', 'FuncionarioController@update');
+	    Route::post('destroy/{funcionario}/{nome?}', 'FuncionarioController@destroy')->name('funcionarioDestroy');
 	});
 
 	Route::get('storage', 'HomeController@storage');

@@ -50,9 +50,6 @@
 										CPF
 									</th>
 									<th>
-										Empresa
-									</th>
-									<th>
 										Editar
 									</th>
 									<th>
@@ -73,9 +70,6 @@
 										</td>
 										<td>
 											{{ $funcionario->cpf }}
-										</td>
-										<td>
-											{{ $funcionario->empresa->nome }}
 										</td>
 										<td>
 											<a href="{{ route('funcionarioEdit',[$funcionario->id]) }}" class="btn btn-warning">Editar</a>

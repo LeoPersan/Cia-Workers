@@ -62,7 +62,7 @@
 									@foreach ($funcionarios as $funcionario)
 									<tr>
 										<td>
-											<a href="{{ route('funcionario',[$funcionario->id]) }}">{{ $funcionario->nome }}</a>
+											<a href="{{ route('funcionario',[$funcionario->id,$funcionario->slug]) }}">{{ $funcionario->nome }}</a>
 										</td>
 										<td>
 											{{ $funcionario->email }}
@@ -74,13 +74,13 @@
 											{{ $funcionario->cpf }}
 										</td>
 										<td>
-											{{ $funcionario->empresa->nome }}
+											<a href="{{ route('empresa',[$funcionario->empresa->slug]) }}">{{ $funcionario->empresa->nome }}</a>
 										</td>
 										<td>
-											<a href="{{ route('funcionarioEdit',[$funcionario->id]) }}" class="btn btn-warning">Editar</a>
+											<a href="{{ route('funcionarioEdit',[$funcionario->id,$funcionario->slug]) }}" class="btn btn-warning">Editar</a>
 										</td>
 										<td>
-											<form action="{{ route('funcionarioDestroy',[$funcionario->id]) }}" method="post">
+											<form action="{{ route('funcionarioDestroy',[$funcionario->id,$funcionario->slug]) }}" method="post">
 												@csrf()
 												<button class="deletar btn btn-danger" class="btn-danger">Deletar</button>
 											</form>

@@ -59,7 +59,7 @@
 									<figure style="background-image: url('{{ asset($empresa->logoPath) }}')"></figure>
 										</td>
 										<td>
-											<a href="{{ route('empresa',[$empresa->id]) }}">{{ $empresa->nome }}</a>
+											<a href="{{ route('empresa',[$empresa->slug]) }}">{{ $empresa->nome }}</a>
 										</td>
 										<td>
 											{{ $empresa->email }}
@@ -68,10 +68,10 @@
 											{{ $empresa->website }}
 										</td>
 										<td>
-											<a href="{{ route('empresaEdit',[$empresa->id]) }}" class="btn btn-warning">Editar</a>
+											<a href="{{ route('empresaEdit',[$empresa->slug]) }}" class="btn btn-warning">Editar</a>
 										</td>
 										<td>
-											<form action="{{ route('empresaDestroy',[$empresa->id]) }}" method="post">
+											<form action="{{ route('empresaDestroy',[$empresa->slug]) }}" method="post">
 												@csrf()
 												<button class="deletar btn btn-danger" class="btn-danger">Deletar</button>
 											</form>
